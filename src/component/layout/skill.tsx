@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import SkillItem from "../reusable/skillitem";
 import CertCard from "../reusable/certificate";
 
-const skills = ["React", "TypeScript", "Tailwind", "Node.js", "Framer Motion"];
+const skills = ["Electrical", "TypeScript", "Tailwind", "React", "Framer Motion", "Python"];
 const certifications = [
   {
     title: "Full Stack Web Dev",

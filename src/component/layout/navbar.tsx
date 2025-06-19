@@ -29,7 +29,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-15 py-8 backdrop-blur-sm bg-transparent text-white text-2xl">
-        <div className="text-2xl font-bold">YourName</div>
+        <div className="text-2xl font-bold">Zaky Hafiedz</div>
         <ul className="flex space-x-6">
             {sections.map((section) => (
             <li key={section}>

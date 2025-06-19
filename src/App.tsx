@@ -4,16 +4,14 @@ import Contact from './component/layout/contact';
 import Hero from './component/layout/hero';
 import NavBar from './component/layout/navbar';
 import Skill from './component/layout/skill';
-import Stars from './component/background/stars';
 
 function App() {
   return (
     <div 
       id="scroll-container"
-      className="h-screen snap-y snap-mandatory overflow-y-scroll scrollbar-hide scroll-smooth"
+      className="snap-y snap-mandatory overflow-y-scroll scrollbar-hide scroll-smooth"
     >
       <ParallaxBackground />
-      <Stars />
       <NavBar />
       
       <section id="home" className="h-screen snap-start">
