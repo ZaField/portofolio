@@ -1,13 +1,14 @@
 import { motion, useAnimation, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaDiscord } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaDiscord, FaMedium } from "react-icons/fa";
 
 const icons = [
   { icon: <FaEnvelope />, link: "mailto:zakyhafiedz10@gmail.com" },
-  { icon: <FaGithub />, link: "https://github.com/yourusername" },
-  { icon: <FaInstagram />, link: "https://instagram.com/yourhandle" },
-  { icon: <FaLinkedin />, link: "https://linkedin.com/in/yourhandle" },
-  { icon: <FaDiscord />, link: "https://discord.com/users/yourDiscordID"},
+  { icon: <FaGithub />, link: "https://github.com/ZaField" },
+  { icon: <FaInstagram />, link: "https://www.instagram.com/aky_fiedz?igsh=NWxveDh3YWJqdWd4" },
+  { icon: <FaLinkedin />, link: "https://linkedin.com/in/zaky-hafiedz-3b1950268/" },
+  { icon: <FaDiscord />, link: "https://discord.com/users/584260346836025355"},
+  { icon: <FaMedium />, link: "https://medium.com/@zakyhafiedz10"},
 ];
 
 export default function Contact() {
@@ -69,7 +70,7 @@ export default function Contact() {
         className="h-screen text-white flex items-center justify-center relative overflow-hidden"
         >
         <h1 className="text-6xl text-center font-bold z-10 whitespace-pre-line">
-            Contact me{'\n'}at
+            Contact Me<br/>
         </h1>
 
         <motion.div

@@ -2,16 +2,24 @@ import { motion } from "framer-motion";
 import SkillItem from "../reusable/skillitem";
 import CertCard from "../reusable/certificate";
 
-const skills = ["Electrical", "TypeScript", "Tailwind", "React", "Framer Motion", "Python"];
-const certifications = [
+const skills = [
+  { name: "Electrical", description: "Advance knowledge of electrical system and IOT." },
+  { name: "TypeScript", description: "Basic knowledge for building frontend website." },
+  { name: "Tailwind", description: "Basic knowledge for make CSS UI quickly." },
+  // { name: "React", description: "Based knowledge for building user interfaces." },
+  { name: "SQL Server", description: "Basic knowledge for data processing and data analysis." },
+  { name: "3D blender", description: "Advance knowledge of 3D Design and 3D animation using blender software." },
+  { name: "Python", description: "General knowledge for sricpting and automation." },
+];
+const project = [
   {
     title: "Full Stack Web Dev",
-    image: "/assets/certs/fullstack.png",
+    image: "./project/replacement.png",
     issuer: "Coursera",
   },
   {
     title: "React Advanced",
-    image: "/assets/certs/react.png",
+    image: "./project/replacement.png",
     issuer: "Udemy",
   },
 ];
@@ -26,7 +34,7 @@ const Skill = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Skills & Certifications
+          Skills & Sample Project
         </motion.h2>
 
         {/* Skills */}
@@ -44,13 +52,13 @@ const Skill = () => {
           }}
         >
           {skills.map((skill, index) => (
-            <SkillItem key={index} skill={skill} />
+            <SkillItem key={index} skill={skill.name} description={skill.description} />
           ))}
         </motion.div>
 
         {/* Certifications */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {certifications.map((cert, index) => (
+          {project.map((cert, index) => (
             <CertCard key={index} cert={cert} />
           ))}
         </div>
