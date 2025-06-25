@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const sections = ["home", "about", "skill", "contact"];
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -15,7 +17,7 @@ const Navbar = () => {
         });
       },
       {
-        threshold: 0.5, // adjust for when a section becomes active
+        threshold: 0.5,
       }
     );
 
@@ -27,25 +29,63 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-15 py-8 backdrop-blur-sm bg-transparent text-white text-2xl">
+    <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 backdrop-blur-sm bg-transparent text-white">
+      <div className="flex justify-between items-center">
         <div className="text-2xl font-bold">Zaky Hafiedz</div>
-        <ul className="flex space-x-6">
-            {sections.map((section) => (
+
+        {/* Desktop */}
+        <ul className="hidden md:flex space-x-6 text-xl">
+          {sections.map((section) => (
             <li key={section}>
-                <a
+              <a
                 href={`#${section}`}
                 className={`transition-all duration-200 ${
-                    activeSection === section ? "font-bold" : "font-normal"
+                  activeSection === section ? "font-bold" : "font-normal"
                 } hover:underline`}
-                >
+              >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
-                </a>
+              </a>
             </li>
-            ))}
+          ))}
         </ul>
+
+        {/* Mobile Toggle */}
+        <div className="md:hidden">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu with smooth animation */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          isMenuOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <ul className="flex flex-col mt-4 space-y-4 text-xl">
+          {sections.map((section) => (
+            <li key={section}>
+              <a
+                href={`#${section}`}
+                onClick={handleLinkClick}
+                className={`block transition-all duration-200 ${
+                  activeSection === section ? "font-bold" : "font-normal"
+                } hover:underline`}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
-    );
+  );
 };
 
 export default Navbar;
