@@ -4,6 +4,7 @@ import Contact from './component/layout/contact';
 import Hero from './component/layout/hero';
 import NavBar from './component/layout/navbar';
 import Skill from './component/layout/skill';
+import ContactForm from './component/layout/form';
 
 function App() {
   return (
@@ -28,6 +29,10 @@ function App() {
       
       <section id="contact" className="h-screen snap-start">
         <Contact />
+      </section>
+
+      <section id="Form" className="text-white">
+        <ContactForm />
       </section>
     </div>
   );
